@@ -1,12 +1,16 @@
-
-
 class Tree(object):
 
     def __init__(self, root):
+        """
+        :param root: initialize a Tree object with "root" at its root
+        """
         self.root = root
 
     # get root value
     def get_value_root(self):
+        """
+        :return: get root value
+        """
         if self.root is not None:
             return self.root.value
         else:
@@ -14,6 +18,10 @@ class Tree(object):
 
     # get the 2d list to be printed
     def store_tree_improve(self):
+        """
+        A recursive function that get the whole tree into a 2d list
+        :return: a 2d list that contain the whole tree
+        """
         array = []
         space = "|"
         if self is not None:
@@ -78,6 +86,10 @@ class Tree(object):
 
     # print out the 2d list
     def get_tree(self):
+        """
+        print out the tree
+        :return: the 2d array we get from the recursive function
+        """
         matrix = self.store_tree_improve()
         temp = [["|" for j in range(len(matrix[0])-2)] for i in range(len(matrix)-1)]
         for i in range(len(temp)):
@@ -102,6 +114,11 @@ class Tree(object):
 # The Node Class
 class Node(object):
     def __init__(self, value, left, right):
+        """
+        :param value: the value of the node
+        :param left: the node that is to the left of the current node
+        :param right: the node that is to the right of the current node
+        """
         self.value = value
         self.left = left
         self.right = right
