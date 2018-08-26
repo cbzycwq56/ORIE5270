@@ -10,6 +10,12 @@ class TestGraph(unittest.TestCase):
         result=hw.find_shortest_path(filename, 1.,3.)
         correct=(7.,[1.,2.,5.,6.,3.])
         assert result == correct
+   
+    def testShortPath2(self):
+        filename="shortpath2.txt"
+        result=hw.find_shortest_path(filename, 1.,4.)
+        correct=(float("inf"),[])
+        assert result == correct
        
     def testNegCicle1(self):
         filename="negcicle1.txt"

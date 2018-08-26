@@ -66,7 +66,10 @@ def find_shortest_path(name_txt_file, source, destination):
                     ff=hq.heappop(F)
                     hq.heappush(temp,ff)
                 F=temp
-    return d[destination], Path[destination] 
+    if destination in d.keys():
+        return d[destination], Path[destination]
+    else:
+        return float("inf"), [] 
 
 def F(graph, num_step, source, destination):
     if num_step==0:
