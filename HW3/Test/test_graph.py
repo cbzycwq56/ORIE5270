@@ -23,3 +23,10 @@ class TestGraph(unittest.TestCase):
         correct = [[1.,2.,3.,4.,1.],[2.,3.,4.,1.,2.],
                    [3.,4.,1.,2.,3.],[4.,1.,2.,3.,4.]]
         assert result in correct
+
+    def testNegCicle2(self):
+        filename="shortpath1.txt"
+        result=hw.find_negative_cicles(filename)
+        correct = [[1.,2.,3.,4.,1.],[2.,3.,4.,1.,2.],
+                   [3.,4.,1.,2.,3.],[4.,1.,2.,3.,4.]]
+        assert result == None

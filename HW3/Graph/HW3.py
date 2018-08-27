@@ -114,7 +114,7 @@ def find_negative_cicles(name_txt_file):
                     for start in range(0,end):
                         if path[end]==path[start]:
                             return path[start:end+1]
-    return []
+    return None
 
 
 
