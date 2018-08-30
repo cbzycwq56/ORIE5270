@@ -23,13 +23,13 @@ def matvec(matrix_file, vector_file):
     matrix = matrixs.map(lambda l: list(map(float, re.split(':|,', l))))
     vector = vectors.map(lambda l: list(map(float, re.split(':|,', l))))
 
-    matrix = matrix.map(lambda l: (l[0],pair(l)))
+    matrix = matrix.map(lambda l: (l[0]+1,pair(l)))
     vector = vector.map(lambda l: vec_pair(l))
     #4th step
     
     element = matrix.flatMap(compute_element)
     #5th step
-    vec_element= vector=vector.flatMap(compute_vector)
+    vec_element=vector.flatMap(compute_vector)
     element=element.join(vec_element)
     
     #6th step
@@ -40,7 +40,7 @@ def matvec(matrix_file, vector_file):
     answer=element.reduceByKey(lambda a,b:a+b)
     answer=answer.map(lambda l: l[1])
 
-    #answer.saveAsTextFile("exercise1")
+    answer.saveAsTextFile("exercise3")
     sc.stop()
     return answer
 
